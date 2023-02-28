@@ -36,7 +36,7 @@ function correctRounding(array: number[]): number[] {
     let result: number[] = [];
     array.forEach(element => {
         element = element * 100;
-        const string = element.toFixed(5);
+        const string = element.toFixed(3);
         result.push(Number(string));
     });
     return result;
