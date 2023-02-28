@@ -1,2 +1,3 @@
-# Probability-Calculator
-I got pissed that none of the probability calculators I found online does everything I want to do, so I am maknig my own.
+* Probability Calculator
+Calculates easy 1 chances
+Calculates chance of x occuring y times over z times.

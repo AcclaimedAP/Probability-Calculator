@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Probability Calculator</title>
+    <link rel="stylesheet" href="./src/style/main.scss">
+  </head>
+  <body>
+    <header>
+      <h1>Probability Calculator</h1>
+    </header>
+    <main>
+      <section>
+        <h2>Probability for two Events</h2>
+        <div>
+          <h3>Input</h3>
+          <label>Chance for occurance for Event A: <input type="number" name="chanceForX" step="0.01" id="InputEventA"></label>
+          <label>Chance for occurance for Event B: <input type="number" name="chanceForY" step="0.01" id="InputEventB"></label>
+          <h3>Results</h3>
+          <P><output id="chanceForOutput"></output></P>
+        </div>
+      </section>
+      <section>
+        <h2>Occurances over X</h2>
+        <h3>Input</h3>
+        <label>Chance for occurance: <input type="number" name="chanceForO" step="0.01" id="InputRecurring"></label>
+        <label>Goal: <input type="number" name="Goal" id="InputGoal"></label>
+        <label>Occurances: <input type="number" name="Occurances" id="InputCount"></label>
+        <h3>Results</h3>
+        <P><output id="chanceForOutput"></output></P>
+        <div>
+
+
+        </div>
+      </section>
+    </main>
+
+
+
+
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>
