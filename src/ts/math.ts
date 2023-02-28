@@ -13,7 +13,6 @@ export default function compareEvents(a: number, b: number): number[] {
 }
 
 function correctRounding(array: number[]): number[] {
-    console.log("func");
     let result: number[] = [];
     array.forEach(element => {
         element = element * 100;
