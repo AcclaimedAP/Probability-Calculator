@@ -1,4 +1,4 @@
-import compareEvents from "./math";
+import { compareEvents, binomialProbabilityResult } from "./math";
 
 function calculateTwoEvents() {
     const chanceForOutput = document.getElementById('chanceForOutput') as HTMLOutputElement;
@@ -21,6 +21,22 @@ function calculateTwoEvents() {
     `;
 }
 
+function calculateBinomial() {
+    const binomialOutput = document.getElementById('binomialOutput') as HTMLOutputElement;
+    const inputChance = document.getElementById('inputChance') as HTMLInputElement;
+    const inputGoal = document.getElementById('inputGoal') as HTMLInputElement;
+    const inputOccurances = document.getElementById('inputOccurances') as HTMLInputElement;
+    const valueChance = Number(inputChance.value);
+    const valueGoal = Number(inputGoal.value);
+    const valueOccurances = Number(inputOccurances.value);
+    let result: number[];
+    result = binomialProbabilityResult(valueChance, valueGoal, valueOccurances);
+
+    binomialOutput.innerHTML = `
+    Chance of it occuring exactly ${valueGoal} times: ${result[0]}%<br>
+    Chance of it occuring ${valueGoal} times or more: ${result[1]}%
+    `
+}
 
 
 function init() {
@@ -32,6 +48,15 @@ function init() {
     eventA.addEventListener('change', calculateTwoEvents);
     eventB.addEventListener('change', calculateTwoEvents);
 
+
+    const inputChance = document.getElementById('inputChance') as HTMLInputElement;
+    const inputGoal = document.getElementById('inputGoal') as HTMLInputElement;
+    const inputOccurances = document.getElementById('inputOccurances') as HTMLInputElement;
+
+    inputChance.addEventListener('change', calculateBinomial);
+    inputGoal.addEventListener('change', calculateBinomial);
+    inputOccurances.addEventListener('change', calculateBinomial);
+    
 }
 
 init();

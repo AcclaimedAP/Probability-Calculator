@@ -1,4 +1,4 @@
-export default function compareEvents(a: number, b: number): number[] {
+export function compareEvents(a: number, b: number): number[] {
     let result: number[] = [];
     result.push(a);
     result.push(b);
@@ -12,6 +12,26 @@ export default function compareEvents(a: number, b: number): number[] {
     return result;
 }
 
+export function binomialProbabilityResult(chance: number, goal: number, occurrences: number): number[] {
+    let result: number[] = [];
+
+    result.push(binomialProbability(chance, goal, occurrences)); // Exact
+    result.push(commulativeBinomialProbability(chance, goal, occurrences)); // Commulative
+    // result = correctRounding(result);
+    return result;
+}
+
+function commulativeBinomialProbability(chance: number, goal: number, occurences: number): number {
+    let commulativeOdds: number[] = [];
+    while (goal <= occurences) {
+        commulativeOdds.push(binomialProbability(chance, goal, occurences));
+        goal += 1;
+    }
+
+    const summedResult = commulativeOdds.reduce((sum, currentValue) => sum + currentValue, 0);
+    return summedResult;
+}
+
 function correctRounding(array: number[]): number[] {
     let result: number[] = [];
     array.forEach(element => {
@@ -21,3 +41,17 @@ function correctRounding(array: number[]): number[] {
     });
     return result;
 }
+
+function binomialProbability(chance: number, goal: number, occurrences: number) {
+    const combinations = factorial(occurrences) / (factorial(goal) * factorial(occurrences - goal));
+    const probability = Math.pow(chance, goal) * Math.pow(1 - chance, occurrences - goal);
+    return combinations * probability;
+}
+
+
+function factorial(n: number): number {
+    if (n === 0 || n === 1) {
+        return 1;
+    }
+    return n * factorial(n - 1);
+};
