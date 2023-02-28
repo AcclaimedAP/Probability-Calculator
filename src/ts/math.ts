@@ -17,7 +17,7 @@ export function binomialProbabilityResult(chance: number, goal: number, occurren
 
     result.push(binomialProbability(chance, goal, occurrences)); // Exact
     result.push(commulativeBinomialProbability(chance, goal, occurrences)); // Commulative
-    // result = correctRounding(result);
+    result = correctRounding(result);
     return result;
 }
 
